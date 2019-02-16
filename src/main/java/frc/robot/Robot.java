@@ -15,11 +15,17 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 
 public class Robot extends TimedRobot {
 
+  
+
+  // Joysticks
   Joystick _joystick = new Joystick(0); 
   Joystick _joystick2 = new Joystick(1);
+  //
+  // Left motors
   Spark _leftFront = new Spark(0); 
   Spark _leftBack = new Spark(1);
   SpeedControllerGroup left = new SpeedControllerGroup(_leftFront, _leftBack);
+  //
   Spark _rightFront = new Spark(2); 
   Spark _rightBack = new Spark(3); 
   SpeedControllerGroup right = new SpeedControllerGroup(_rightFront, _rightBack);
