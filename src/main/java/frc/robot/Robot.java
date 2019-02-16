@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import javax.lang.model.util.ElementScanner6;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode.PixelFormat;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
@@ -36,7 +39,10 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-
+    new Thread(() -> {
+      UsbCamera camera = CameraServer.getInstance().startAutomaticCapture("cam1", 0);
+      camera.setVideoMode(PixelFormat.kMJPEG, 320, 240, 15);
+    }).start();
   }
 
 
